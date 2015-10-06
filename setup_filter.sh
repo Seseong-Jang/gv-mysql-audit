@@ -2,7 +2,7 @@
 
 if [ $# -ne 2 ]; then
 echo "You must input Mysql Root Password And OS type(CentOS | Ubuntu)."
-echo "ex) ./install_audit 1234 CentOS"
+echo "ex) ./setup_filter.sh rpdlaqlf Ubuntu"
 exit
 fi
 
