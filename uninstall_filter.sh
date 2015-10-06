@@ -29,7 +29,6 @@ PW=$1
 ERR_FILE_FULL_PATH=`mysql -uroot -p${PW} --max_allowed_packet=16M -N -e"show variables like 'log_error'" | grep error | awk '{print $2}'`
 ERR_FILE_NAME=`ls ${ERR_FILE_FULL_PATH} | xargs -l basename`
 echo "error_log_file is ${ERR_FILE_FULL_PATH}"
-mkdir -p /backup/audit/
 rm -rf ${ERR_FILE_FULL_PATH}_tmp
 rm /backup/audit/error_file_name
 
