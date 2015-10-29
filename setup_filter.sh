@@ -27,10 +27,10 @@ PW=$1
 ERR_FILE_FULL_PATH=`mysql -uroot -p${PW} --max_allowed_packet=16M -N -e"show variables like 'log_error'" | grep error | awk '{print $2}'`
 ERR_FILE_NAME=`ls ${ERR_FILE_FULL_PATH} | xargs -l basename`
 echo "error_log_file is ${ERR_FILE_FULL_PATH}"
-mkdir -p /backup/audit/
+mkdir -p /data/audit/
 touch ${ERR_FILE_FULL_PATH}_tmp
 echo ${ERR_FILE_FULL_PATH}_tmp
-ls ${ERR_FILE_FULL_PATH} > /backup/audit/error_file_name
+ls ${ERR_FILE_FULL_PATH} > /data/audit/error_file_name
 
 mysql -uroot -p${PW} --max_allowed_packet=16M -e"set global log_warnings = 2;"
 
@@ -38,8 +38,8 @@ mysql -uroot -p${PW} --max_allowed_packet=16M -e"set global log_warnings = 2;"
 cp filter.sh /root
 
 echo "======== gm connect logging installed. =========="
-echo "======== log is /backup/audit/filter.log ========"
-echo "======== info /backup/audit/error_file_name ====="
+echo "======== log is /data/audit/filter.log ========"
+echo "======== info /data/audit/error_file_name ====="
 echo "======== shell is /root/filter.sh =========="
 
 

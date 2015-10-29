@@ -1,8 +1,8 @@
 #!/bin/sh
 
-ERR_FILE_NAME=`cat /backup/audit/error_file_name`
+ERR_FILE_NAME=`cat /data/audit/error_file_name`
 
-cat ${ERR_FILE_NAME} |grep 'Access denied' >> /backup/audit/filter.log
+cat ${ERR_FILE_NAME} |grep 'Access denied' >> /data/audit/filter.log
 
 #because sed '/word/d' error.log > error.log is size 0byte
 
